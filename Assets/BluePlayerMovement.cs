@@ -52,16 +52,11 @@ public class BluePlayerMovement : MonoBehaviour
     {
         if (isMoving)
         {
-            // Perform raycasting to detect collisions
-            RaycastHit hit;
-            if (!Physics.Raycast(transform.position, transform.forward, out hit, moveSpeed * Time.fixedDeltaTime))
-            {
-                // No collision detected, move the player
-                Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y) * moveSpeed * Time.fixedDeltaTime;
-                rb.MovePosition(rb.position + movement);
-            }
+            Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y).normalized * moveSpeed * Time.fixedDeltaTime;
+            rb.MovePosition(rb.position + movement);
         }
     }
+
 
     private void OnMoveStarted(InputAction.CallbackContext context)
     {

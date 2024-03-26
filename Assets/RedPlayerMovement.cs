@@ -54,12 +54,12 @@ public class RedPlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (aiController.enabled) // Only move if AiController is enabled
-        {
+        //if (aiController.enabled) // Only move if AiController is enabled
+        //{
             // Apply movement based on input
             Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y) * moveSpeed * Time.fixedDeltaTime;
             rb.MovePosition(rb.position + movement);
-        }
+        //}
     }
 
     private void OnMoveStarted(InputAction.CallbackContext context)
